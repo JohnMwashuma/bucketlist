@@ -118,7 +118,7 @@ html,body{
 
 /* End Side Nav-Bar Navigation Styles */
 
-/* Top Navigation Styles */
+/* Top Nav-Bar Navigation Styles */
 #nav-header{
     background-color: #fff;
     border-bottom: 1px solid #e7eaec;
@@ -164,7 +164,7 @@ html,body{
 #nav-header #welcome{
     margin-right: 20px;
 }
-/* End Top Navigation Styles */
+/* End Top Nav-Bar Navigation Styles */
 
 /* Footer Styles */
 #bucketlist-footer{
@@ -178,3 +178,28 @@ html,body{
 }
 
 /* End Footer Styles */
+
+/* Toggle Side bar */
+
+.navbar-default{
+    background-color: #fff;
+}
+
+.navbar-default .navbar-toggle{
+    border-color: #1ab394;
+    background-color: #1ab394;    
+}
+
+.navbar-default .navbar-toggle:hover{
+    background-color: #1ab394;    
+}
+
+.navbar-default .navbar-toggle:focus{
+    background-color: #1ab394;    
+}
+
+.navbar-default .icon-bar{
+    border: 1px white solid;
+}
+
+/* Toggle Side bar */
