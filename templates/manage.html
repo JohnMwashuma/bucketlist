@@ -89,7 +89,7 @@
                            <li id="welcome" class="hidden-xs">
                                Welcome back jmwashuma@live.com
                            </li>
-                          <li class="dropdown " id="menuLogin">
+                           <li class="dropdown " id="menuLogin">
                             <a class="dropdown-toggle btn btn-xs btn-primary" href="#" data-toggle="dropdown"  id="navLogin">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
                             <div class="dropdown-menu" style="padding:17px;">
                                 <form id="formLogin" class="form"> 
@@ -118,48 +118,36 @@
                
                <div id="content">
                    <header>
-                       <h2 class="page_title">Create a New Wish</h2>
+                       <h2 class="page_title">User Account Profile</h2>
                    </header>
                    
                    <div class="content-inner">
                        <div class="form-wrapper">
                            <form>
+                               
                                <div class="form-group">
-                                   <label class="sr-only">Title</label>
-                                   <input type="text" class="form-control" placeholder="Title">
+                                   <label class="sr-only">User Name</label>
+                                   <input type="text" class="form-control" placeholder="User Name">
                                </div>
+                               
                                <div class="form-group">
-                                   <label class="sr-only">Tags</label>
-                                   <select data-placeholder="Select tags" multiple name="tags" class="form-control chosen-select">
-                                    <option></option>
-                                    <option>Career</option>
-                                    <option>Politics</option>
-                                    <option>Business</option>                                    
-                                   </select>
-                               </div>
-                               <div class="form-group">
-                                   <label class="sr-only">Description</label>
-                                   <textarea class="form-control" placeholder="Wish Description" name="description"></textarea>
-                               </div>
-                               <div class="form-group">
-                                   <label>
-                                    Add a Wish Image
-                                    <input type="file">
-                                    </label>
-                               </div> 
-                               <div class="checkbox">
-                                   <label>
-                                       <input type="checkbox"> Make wish not visible to others
-                                   </label>
+                                   <label class="sr-only">Email Address</label>
+                                   <input type="email" class="form-control" placeholder="Email">
+                               </div>  
+                               
+                                <div class="form-group">
+                                   <label class="sr-only">Password</label>
+                                   <input type="password" class="form-control" placeholder="Password">
                                </div> 
                                
-                               <div class="checkbox">
-                                   <label>
-                                       <input type="checkbox"> Mark wish as accomplished
-                                   </label>
-                               </div>
+                                <div class="form-group">
+                                   <label class="sr-only">Confirm Password</label>
+                                   <input type="password" class="form-control" placeholder="Confirm Password">
+                               </div>                              
+                               
+                              
                                <div class="clearfix">
-                                    <button type="submit" class="btn btn-info pull-left">Cancel</button>
+                                   <button type="submit" class="btn btn-info pull-left">Cancel</button>
                                    <button type="submit" class="btn btn-primary pull-right">Save</button>
                                </div>
                            </form>

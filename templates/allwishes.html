@@ -51,12 +51,13 @@
                            
                        </a>
                        <ul class="collapse collapseable" id="collapse-my-wishes">
+                           <li><a href="all-my-wishes.html">All My Wishes</a></li>
                            <li><a href="public-wishes.html">My Public Wishes</a></li>
                            <li><a href="private-wishes.html">My Private Wishes</a></li>
                        </ul>
                    </li>
                    <li class="link settings-btn">
-                       <a href="#">
+                       <a href="manage.html">
                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                            <span class="hidden-sm hidden-xs">Manage Account</span>
                        </a>
@@ -89,12 +90,28 @@
                            <li id="welcome" class="hidden-xs">
                                Welcome back jmwashuma@live.com
                            </li>
-                           <li>
-                               <a href="#" class="logout">
-                                   <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                                   log out
-                               </a>
-                           </li>
+                           <li class="dropdown " id="menuLogin">
+                            <a class="dropdown-toggle btn btn-xs btn-primary" href="#" data-toggle="dropdown"  id="navLogin">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+                            <div class="dropdown-menu" style="padding:17px;">
+                                <form id="formLogin" class="form"> 
+                                    <label>Login</label> 
+                                    <input name="_csrf" id="token" type="hidden" value="ebTQ1WUN-vBIDMJeQuVOPewdteR2eYZoS4Lo">
+    							    <input name="username" id="username" type="text" placeholder="Username" pattern="^[a-z,A-Z,0-9,_]{6,15}$" data-valid-min="6" title="Enter your username" required="">
+    							    <input name="password" id="password" type="password" placeholder="Password" title="Enter your password" required=""><br>
+    							    <button type="button" id="btnLogin" class="btn btn-xs btn-primary">Login</button>
+    							</form>
+                                <form><a href="#" title="Fast and free sign up!" id="btnNewUser" data-toggle="collapse" data-target="#formRegister">New User? Sign-up..</a></form>
+                                <form id="formRegister" class="form collapse">
+                                    <input name="_csrf" id="token" type="hidden" value="ebTQ1WUN-vBIDMJeQuVOPewdteR2eYZoS4Lo">
+                                    <input name="email" id="inputEmail" type="email" placeholder="Email" required="">
+        						    <input name="username" id="inputUsername" type="text" placeholder="Username" pattern="^[a-z,A-Z,0-9,_]{6,15}$" data-valid-min="6" title="Choose a username" required=""><br>
+    							    <input name="password" id="inputpassword" type="password" placeholder="Password" required=""> 
+                                    <input name="verify" id="inputVerify" type="password" placeholder="Password (again)" required=""><br>                                  
+    							    <button type="button" id="btnRegister" class="btn btn-xs btn-primary">Sign Up</button>
+    							</form>
+                               
+                            </div>
+                        </li>
                        </ul>
                     </div>
                 </header>
