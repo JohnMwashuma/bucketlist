@@ -9,9 +9,13 @@
 
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+      
+    <!-- Choosen -->
+    <link href="../static/css/chosen.min.css" rel="stylesheet">
    
     <!-- Custome Styles -->  
     <link href="../static/css/custom.css" rel="stylesheet">
+    <link href="../static/css/wish-form.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,7 +32,7 @@
            <div class="col-md-2 col-sm-1 display-table-cell valign-top hidden-xs" id="side-menu">
               <h1 class="hidden-sm hidden-xs">Bucketlist</h1> 
                <ul>
-                   <li class="link active">
+                   <li class="link">
                        <a href="#collapse-all-wishes" data-toggle="collapse" aria-controls="collapse-all-wishes">
                            <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
                            <span class="hidden-sm hidden-xs">All Public Wishes</span>
@@ -36,7 +40,7 @@
                        </a>
                        <ul class="collapse collapseable" id="collapse-all-wishes">
                            <li><a href="#">Public Wishes</a></li>
-                           <li><a href="wish-form.html">Create New Wish <span class="glyphicon glyphicon-plus pull-right"></span></a></li>                            
+                           <li class="active"><a href="wish-form.html">Create New Wish <span class="glyphicon glyphicon-plus pull-right"></span></a></li>                            
                        </ul>
                    </li>
                    <li class="link">
@@ -95,7 +99,57 @@
                 </header>
                </div>
                
-                <!-- Footer -->               
+               <div id="content">
+                   <header>
+                       <h2 class="page_title">Create a New Wish</h2>
+                   </header>
+                   
+                   <div class="content-inner">
+                       <div class="form-wrapper">
+                           <form>
+                               <div class="form-group">
+                                   <label class="sr-only">Title</label>
+                                   <input type="text" class="form-control" placeholder="Title">
+                               </div>
+                               <div class="form-group">
+                                   <label class="sr-only">Tags</label>
+                                   <select data-placeholder="Select tags" multiple name="tags" class="form-control chosen-select">
+                                    <option></option>
+                                    <option>Career</option>
+                                    <option>Politics</option>
+                                    <option>Business</option>                                    
+                                   </select>
+                               </div>
+                               <div class="form-group">
+                                   <label class="sr-only">Description</label>
+                                   <textarea class="form-control" placeholder="Wish Description" name="description"></textarea>
+                               </div>
+                               <div class="form-group">
+                                   <label>
+                                    Add a Wish Image
+                                    <input type="file">
+                                    </label>
+                               </div> 
+                               <div class="checkbox">
+                                   <label>
+                                       <input type="checkbox"> Make wish not visible to others
+                                   </label>
+                               </div> 
+                               
+                               <div class="checkbox">
+                                   <label>
+                                       <input type="checkbox"> Mark wish as accomplished
+                                   </label>
+                               </div>
+                               <div class="clearfix">
+                                   <button type="submit" class="btn btn-primary pull-right">Save</button>
+                               </div>
+                           </form>
+                       </div>
+                   </div>
+               </div>
+               
+               <!-- Footer -->               
                <div class="row">
                    <footer id="bucketlist-footer" class="clearfix">
                        <div class="pull-left"><b>Copyright </b>&copy; Bucketlist 2017</div>
@@ -114,6 +168,23 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../static/js/bootstrap.min.js"></script>
     <!-- Custom Js -->
-    <script src="../static/js/custom.js"></script>
+    <script src="../static/js/custom.js"></script>      
+    <!-- Chosen -->
+    <script src="../static/js/chosen.jquery.min.js"></script>
+      
+    <!-- Script for Implementing Taging using chosen -->
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select':{},
+            '.chosen-select-deselect':{allow_single_deselect:true},
+            '.chosen-select-no-single':{disable_search_threshold:10},
+            '.chosen-select-no-result':{no_result_text:'Oops, nothing found!'},
+            '.chosen-select-width': {width:"95%"}
+        }
+        
+        for (var selector in config){
+            $(selector).chosen(config[selector]);
+        }
+    </script>
   </body>
 </html>
