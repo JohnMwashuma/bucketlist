@@ -16,3 +16,7 @@ label {
 input[type="file"] {
     display: inline-block;
 }
+
+.chosen-container,chosen-container-multi{
+    width: 100% !important;
+}
