@@ -1,6 +1,5 @@
 /* Body Styles */
-html,body{
-    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+html,body{    
     background-color: #f3f3f4;
     color: #676a6c;
     height:100%;
@@ -214,13 +213,12 @@ html,body{
 
 #content header{
     border-bottom: 1px #f3f3f4 solid;
-    padding: 10px 0px;
+    padding: 10px 20px;
 }
 
 .page_title{
     font-size: 14px;
-    font-weight: bold;
-    padding: 0px 0px 0px 20px;
+    font-weight: bold;   
     margin: 0px;
 }
 
@@ -229,3 +227,63 @@ html,body{
 }
 
 /* WishForm Styles */
+
+/* Search Bar Styles */
+
+.search-field{
+    height: 31px;
+    border: 1px #e7eaec solid;
+    
+}
+
+.search-row{
+  margin-bottom: 30px;  
+}
+
+.btn-primary,.btn-default{
+    background-color: #1ab394;
+    border: 1px solid #1ab394;
+}
+
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus{
+   background-color: #1cc394;
+    border: 1px solid #1cc394;  
+}
+
+.btn-primary:hover{
+    background-color: #1cc394;
+    border: 1px solid #1cc394;
+}
+
+.btn-default:hover{
+    background-color: #1cc394;
+    border: 1px solid #1cc394;
+}
+
+.tag-margin{
+    margin-left: 3px;
+}
+
+.status{
+    margin-right: 10px;
+}
+
+.go{
+    height: 30px;
+}
+
+
+/* Search Bar Styles */
+
+.well-sm{
+        padding: 5px 5px 0px 5px;
+}
+.well-sm p{
+    color: #fff;
+}
+hr {
+    border-top: 1px solid #e7eaec;
+}
+.pager{
+    margin: 0px;
+}
