@@ -1,6 +1,12 @@
 from flask import Flask, render_template, url_for
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+# Database Configuration
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:6927Mwashi@localhost/bucketlist'
+db = SQLAlchemy(app)
 
 # Route to All Public Wishes 
 @app.route('/')
