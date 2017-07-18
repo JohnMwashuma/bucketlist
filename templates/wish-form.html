@@ -1,10 +1,5 @@
 {% extends "layout.html" %} 
 {% block browsertitle %} Bucketlist | Create Wish {% endblock %}
-{% block Custom_css %}
- <!-- Choosen -->
-<link href="../static/css/chosen.min.css" rel="stylesheet">
-
-{% endblock %}
 
 {% block content %}               
 <div id="content">
@@ -14,39 +9,29 @@
     
     <div class="content-inner">
         <div class="form-wrapper">
-            <form>
+            <form action="" method="POST">
+                {{form.hidden_tag()}}
                 <div class="form-group">
                     <label class="sr-only">Title</label>
-                    <input type="text" class="form-control" placeholder="Title">
-                </div>
-                <div class="form-group">
-                    <label class="sr-only">Tags</label>
-                    <select data-placeholder="Select tags" multiple name="tags" class="form-control chosen-select">
-                    <option></option>
-                    <option>Career</option>
-                    <option>Politics</option>
-                    <option>Business</option>                                    
-                    </select>
-                </div>
+                    {{ form.title(placeholder="Title", class="form-control" ) }}                   
+                </div>             
                 <div class="form-group">
                     <label class="sr-only">Description</label>
-                    <textarea class="form-control" placeholder="Wish Description" name="description"></textarea>
+                     {{ form.description(placeholder="Wish Description...", class="form-control" ) }} 
+                    
                 </div>
-                <div class="form-group">
-                    <label>
-                    Add a Wish Image
-                    <input type="file">
-                    </label>
-                </div> 
+              
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Make wish not visible to others
+                        {{ form.wish_status(type="checkbox", value="true") }} 
+                       Make wish not visible to others
                     </label>
                 </div> 
                 
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Mark wish as accomplished
+                        {{ form.wish_progress(type="checkbox", value="true") }} 
+                         Mark wish as accomplished
                     </label>
                 </div>
                 <div class="clearfix">
@@ -58,24 +43,6 @@
     </div>
 </div>
 {% endblock%} 
-{% block Custom_Scripts %} 
-<!-- Chosen -->
-<script src="../static/js/chosen.jquery.min.js"></script>
 
-<!-- Script for Implementing Taging using chosen -->
-<script type="text/javascript">
-    var config = {
-        '.chosen-select':{},
-        '.chosen-select-deselect':{allow_single_deselect:true},
-        '.chosen-select-no-single':{disable_search_threshold:10},
-        '.chosen-select-no-result':{no_result_text:'Oops, nothing found!'},
-        '.chosen-select-width': {width:"95%"}
-    }
-    
-    for (var selector in config){
-        $(selector).chosen(config[selector]);
-    }
-</script>
-{% endblock%}  
                
             
