@@ -1,10 +1,10 @@
 {% extends "layout.html" %} 
-{% block browsertitle %} Bucketlist | Create Bucket Item {% endblock %}
+{% block browsertitle %} Bucketlist | Create Bucketlist activity {% endblock %}
 
 {% block content %}               
 <div id="content">
     <header>
-        <h2 class="page_title">Create a New Bucket Item </h2>
+        <h2 class="page_title">Create a New Bucketlist activity </h2>
     </header>
     
     <div class="content-inner">
@@ -18,21 +18,21 @@
                 </div>             
                 <div class="form-group">
                     <label class="sr-only">Description</label>
-                     {{ form.description(placeholder="Wish Description...", class="form-control",  required ="*"  ) }} 
+                     {{ form.description(placeholder="Bucketlist Activity Description...", class="form-control",  required ="*"  ) }} 
                     
                 </div>
               
                 <div class="checkbox">
                     <label>
-                        {{ form.bucket_item_status(type="checkbox", value="true") }} 
-                       Make bucket item not visible to others
+                        {{ form.bucket_activity_status(type="checkbox", value="true") }} 
+                       Make bucket activity not visible to others
                     </label>
                 </div> 
                 
                 <div class="checkbox">
                     <label>
-                        {{ form.bucket_item_progress(type="checkbox", value="true") }} 
-                         Mark bucket item as accomplished
+                        {{ form.bucket_activity_progress(type="checkbox", value="true") }} 
+                         Mark bucket activity as accomplished
                     </label>
                 </div>
                 <div class="clearfix">

@@ -1,18 +1,16 @@
 """ This is the testing file for all bucketlist routes and methods/functions """
 import unittest
-from bucketlist import app, db
+from bucketlist import app
 import bucketlist
 
 class RoutesTestCases(unittest.TestCase):
     """ Basic Routes test Cases """
 
-    # Testing if our app has been loaded correctly and the database connection is okay
+    # Testing if our app has been loaded correctly
     def test_config_loading(self):
-        """ Return okay if debug is set to true and the database connection is working """
+        """ Return okay if debug is set to true """
         assert app.config['DEBUG'] is True
-        assert app.config['SQLALCHEMY_DATABASE_URI'] == 'postgresql://postgres:6927Mwashi@localhost/bucketlist'
-        db.drop_all()
-        db.create_all()
+        
     
     # Ensure that Login template loads correctly    
     def test_login(self):
@@ -28,7 +26,7 @@ class RoutesTestCases(unittest.TestCase):
         responce = tester.get('/signup', content_type='html/text')
         self.assertEqual(responce.status_code, 200)
     
-    # Ensure that all_bucket_list_items template loads correctly    
+    # Ensure that all_bucket_list_activitys template loads correctly    
     def test_index(self):
         """ Return a 200 http status code if the page loads correctly """
         tester = app.test_client(self)
@@ -42,25 +40,25 @@ class RoutesTestCases(unittest.TestCase):
         responce = tester.get('/create', content_type='html/text')
         self.assertEqual(responce.status_code, 200)   
 
-    # Ensure that my_bucket_list_items template loads correctly    
-    def test_my_bucket_list_items(self):
+    # Ensure that my_bucket_list_activitys template loads correctly    
+    def test_my_bucket_list_activitys(self):
         """ Return a 200 http status code if the page loads correctly """
         tester = app.test_client(self)
-        responce = tester.get('/my_bucket_list_items', content_type='html/text')
+        responce = tester.get('/my_bucket_list_activitys', content_type='html/text')
         self.assertEqual(responce.status_code, 200)
     
-    # Ensure that my_public_bucket_items template loads correctly    
-    def test_my_public_bucket_items(self):
+    # Ensure that my_public_bucket_activitys template loads correctly    
+    def test_my_public_bucket_activitys(self):
         """ Return a 200 http status code if the page loads correctly """
         tester = app.test_client(self)
-        responce = tester.get('/my_public_bucket_items', content_type='html/text')
+        responce = tester.get('/my_public_bucket_activitys', content_type='html/text')
         self.assertEqual(responce.status_code, 200)
     
-    # Ensure that my_private_bucket_items template loads correctly    
-    def test_my_private_bucket_items(self):
+    # Ensure that my_private_bucket_activitys template loads correctly    
+    def test_my_private_bucket_activitys(self):
         """ Return a 200 http status code if the page loads correctly """
         tester = app.test_client(self)
-        responce = tester.get('/my_private_bucket_items', content_type='html/text')
+        responce = tester.get('/my_private_bucket_activitys', content_type='html/text')
         self.assertEqual(responce.status_code, 200)
     
     # Ensure that Upadate Profile template loads correctly    
@@ -82,18 +80,18 @@ class BucketlistTests(unittest.TestCase):
         response = tester.post('/create', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
-    # Ensure the store bucket item method is working correctly
-    def test_store_bucket_list_item(self):
-        """ Test to see if add bucket item functionality is working """
+    # Ensure the store bucket activity method is working correctly
+    def test_store_bucket_list_activity(self):
+        """ Test to see if add bucket activity functionality is working """
         
-        bucketlist.store_bucket_list_item('title', 'description', True, False)
+        bucketlist.store_bucket_list_activity('title', 'description', True, False)
         bucket_list_activities = bucketlist.get_bucket_list_activities(1)
 
-        store_bucket_list_item_works = False
+        store_bucket_list_activity_works = False
         if bucket_list_activities:
-            store_bucket_list_item_works = True
+            store_bucket_list_activity_works = True
 
-        self.assertEqual(store_bucket_list_item_works, True)          
+        self.assertEqual(store_bucket_list_activity_works, True)          
 
 
 

@@ -13,7 +13,7 @@
     <!-- Custom Styles -->  
     <link href="../static/css/custom.css" rel="stylesheet">
     <link href="../static/css/bucket_list_form.css" rel="stylesheet">
-    <link href="../static/css/all_bucket_list_items.css" rel="stylesheet">
+    <link href="../static/css/all_bucket_list_activities.css" rel="stylesheet">
     {% block Custom_css %} {% endblock%}       
   </head>
   <body>
@@ -25,24 +25,24 @@
               <h1 class="hidden-sm hidden-xs">Bucketlist</h1> 
                <ul>
                    <li class="link active">
-                       <a href="#collapse-all-wishes" data-toggle="collapse" aria-controls="collapse-all-wishes">
+                       <a href="#collapse-all-activities" data-toggle="collapse" aria-controls="collapse-all-Buckets">
                            <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-                           <span class="hidden-sm hidden-xs">All Public Activities</span>                          
+                           <span class="hidden-sm hidden-xs">All Public Buckets</span>                          
                        </a>
-                       <ul class="collapse collapseable" id="collapse-all-wishes">
-                           <li><a href="/">Public Activities</a></li>
+                       <ul class="collapse collapseable" id="collapse-all-activities">
+                           <li><a href="/">Public Buckets</a></li>
                            <li><a href="/create">Create New Activity<span class="glyphicon glyphicon-plus pull-right"></span></a></li>                            
                        </ul>
                    </li>
                    <li class="link">
-                       <a href="#collapse-my-wishes" data-toggle="collapse" aria-controls="collapse-my-wishes">
+                       <a href="#collapse-my-activities" data-toggle="collapse" aria-controls="collapse-my-activities">
                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                            <span class="hidden-sm hidden-xs">Manage My Bucketlist</span>                         
                        </a>
-                       <ul class="collapse collapseable" id="collapse-my-wishes">
-                           <li><a href="/my_bucket_list_items">All My Activities</a></li>
-                           <li><a href="/my_public_bucket_items">My Public Activities</a></li>
-                           <li><a href="/my_private_bucket_items">My Private Activities</a></li>
+                       <ul class="collapse collapseable" id="collapse-my-activities">
+                           <li><a href="/my_bucket_list_activities">All My Buckets</a></li>
+                           <li><a href="/my_public_bucket_activities">My Public Buckets</a></li>
+                           <li><a href="/my_private_bucket_activities">My Private Buckets</a></li>
                        </ul>
                    </li>
                    <li class="link settings-btn">
