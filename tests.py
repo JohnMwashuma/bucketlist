@@ -1,6 +1,7 @@
 """ This is the testing file for all bucket routes and methods/functions """
 import unittest
 from bucketlist import app
+import crud
 import bucketlist
 
 class RoutesTestCases(unittest.TestCase):
@@ -67,27 +68,52 @@ class RoutesTestCases(unittest.TestCase):
 class BucketlistTests(unittest.TestCase):
     """ These tests are for all crud operations methods """
 
-     # Ensure that bucket activity form template can redirect after a post request
-    def test_create(self):
-        """ Return a 200 http status code if the page redirects after a post request """
-        tester = app.test_client(self)
-        response = tester.post('/create', follow_redirects=True)
-        self.assertEqual(response.status_code, 200)
-
-    # Ensure the store bucket activity method is working correctly
-    def test_store_bucket_activity(self):
+    # Ensure the store bucket_activities method is working correctly
+    def test_add_bucket_activities(self):
         """ Test to see if add bucket activity functionality is working """
-        
-        bucketlist.store_bucket_activity('title', 'description', True, False)
-        bucket_activities = bucketlist.get_bucket_activities(1)
+        bucket_list = crud.BucketListClass()
+        bucket_list.add_bucket_activities('title', 'description', True, False)  
 
+        confirm_added_bucket_activity = bucket_list.get_check_bucket_activities('title')
+        
         store_bucket_activity_works = False
-        if bucket_activities:
+        if confirm_added_bucket_activity == True:
             store_bucket_activity_works = True
 
         self.assertEqual(store_bucket_activity_works, True)          
 
+    
+    # Ensure the remove bucket_activities method is working correctly
+    def test_remove_bucket_activities(self):
+        """ Test to see if add bucket activity functionality is working """
+        bucket_list = crud.BucketListClass()
+        bucket_list.add_bucket_activities('title', 'description', True, False)  
+        
+        bucket_list.remove_bucket_activities('title')
 
+        confirm_removed_bucket_activity = bucket_list.get_check_bucket_activities('title')
+        
+        remove_bucket_activity_works = False
+        if confirm_removed_bucket_activity == False:
+            remove_bucket_activity_works = True
+
+        self.assertEqual(remove_bucket_activity_works, True) 
+
+    # Ensure the edit bucket_activities method is working correctly
+    def test_edit_bucket_activities(self):
+        """ Test to see if add bucket activity functionality is working """
+        bucket_list = crud.BucketListClass()
+        bucket_list.add_bucket_activities('title', 'description', True, False)  
+        
+        bucket_list.edit_bucket_activities('Andela')
+
+        confirm_update = bucket_list.get_check_bucket_activities('Andela')
+        
+        update_bucket_activity_works = False
+        if confirm_update == True:
+            update_bucket_activity_works = True
+
+        self.assertEqual(update_bucket_activity_works, True) 
 
 if __name__ == '__main__':
     unittest.main()

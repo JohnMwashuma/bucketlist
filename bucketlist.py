@@ -1,4 +1,5 @@
 """ Routes to the project's templates and logic for CRUD """
+import random
 from datetime import datetime
 from flask import Flask, render_template, url_for, request, redirect
 from forms import BucketlistForm
@@ -18,14 +19,14 @@ bucket_activities = []
 def store_bucket_activity(title, description, bucket_activity_status, bucket_activity_progress):
     """ Appends or adds a bucket_activity property to the bucket_list_activities variable """  
     bucket_activities.append(dict(
+        id= random.randint(1, 101),
         title=title,
         user='John',
         description=description,
         bucket_activity_status=bucket_activity_status,
-        bucket_activity_progress=bucket_activity_progress, 
+        bucket_activity_progress=bucket_activity_progress,
         date=datetime.utcnow()
-    ))
-
+          ))
 
 def get_bucket_activities(num):
     """ Returns sorted bucket activities by date created in terms of the latest bucket """
@@ -50,7 +51,7 @@ def create_bucket_activity():
         bucket_activity_progress = form.bucket_activity_progress.data
         store_bucket_activity(title, description, bucket_activity_status, bucket_activity_progress)
         return redirect(url_for('index'))
-    return render_template('bucket_activity_form.html', form = form)
+    return render_template('bucket_activity_form.html', form = form,  heading = "Create a Bucket Activity")
 
 # Route to a User's bucket activities i.e. Public and Private activities
 @app.route('/my_bucket_activities')
