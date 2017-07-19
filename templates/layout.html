@@ -12,8 +12,8 @@
 
     <!-- Custom Styles -->  
     <link href="../static/css/custom.css" rel="stylesheet">
-    <link href="../static/css/wish-form.css" rel="stylesheet">
-    <link href="../static/css/allwishes.css" rel="stylesheet">
+    <link href="../static/css/bucket_list_form.css" rel="stylesheet">
+    <link href="../static/css/all_bucket_list_items.css" rel="stylesheet">
     {% block Custom_css %} {% endblock%}       
   </head>
   <body>
@@ -27,22 +27,22 @@
                    <li class="link active">
                        <a href="#collapse-all-wishes" data-toggle="collapse" aria-controls="collapse-all-wishes">
                            <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-                           <span class="hidden-sm hidden-xs">All Public Wishes</span>                          
+                           <span class="hidden-sm hidden-xs">All Public Activities</span>                          
                        </a>
                        <ul class="collapse collapseable" id="collapse-all-wishes">
-                           <li><a href="/">Public Wishes</a></li>
-                           <li><a href="/create">Create New Wish <span class="glyphicon glyphicon-plus pull-right"></span></a></li>                            
+                           <li><a href="/">Public Activities</a></li>
+                           <li><a href="/create">Create New Activity<span class="glyphicon glyphicon-plus pull-right"></span></a></li>                            
                        </ul>
                    </li>
                    <li class="link">
                        <a href="#collapse-my-wishes" data-toggle="collapse" aria-controls="collapse-my-wishes">
                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                           <span class="hidden-sm hidden-xs">Manage My Wishes</span>                         
+                           <span class="hidden-sm hidden-xs">Manage My Bucketlist</span>                         
                        </a>
                        <ul class="collapse collapseable" id="collapse-my-wishes">
-                           <li><a href="/mywishes">All My Wishes</a></li>
-                           <li><a href="/mypublicwishes">My Public Wishes</a></li>
-                           <li><a href="/myprivatewishes">My Private Wishes</a></li>
+                           <li><a href="/my_bucket_list_items">All My Activities</a></li>
+                           <li><a href="/my_public_bucket_items">My Public Activities</a></li>
+                           <li><a href="/my_private_bucket_items">My Private Activities</a></li>
                        </ul>
                    </li>
                    <li class="link settings-btn">
@@ -80,27 +80,9 @@
                                Welcome back jmwashuma@live.com
                            </li>                     
                            
-                            <li class="dropdown " id="menuLogin">
-                            <a class="dropdown-toggle btn btn-xs btn-primary" href="#" data-toggle="dropdown"  id="navLogin">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
-                            <div class="dropdown-menu" style="padding:17px;">
-                                <form id="formLogin" class="form"> 
-                                    <label>Login</label> 
-                                    <input name="_csrf" id="token" type="hidden" value="ebTQ1WUN-vBIDMJeQuVOPewdteR2eYZoS4Lo">
-    							    <input name="username" id="username" type="text" placeholder="Username" pattern="^[a-z,A-Z,0-9,_]{6,15}$" data-valid-min="6" title="Enter your username" required="">
-    							    <input name="password" id="password" type="password" placeholder="Password" title="Enter your password" required=""><br>
-    							    <button type="button" id="btnLogin" class="btn btn-xs btn-primary">Login</button>
-    							</form>
-                                <form><a href="#" title="Fast and free sign up!" id="btnNewUser" data-toggle="collapse" data-target="#formRegister">New User? Sign-up..</a></form>
-                                <form id="formRegister" class="form collapse">
-                                    <input name="_csrf" id="token" type="hidden" value="ebTQ1WUN-vBIDMJeQuVOPewdteR2eYZoS4Lo">
-                                    <input name="email" id="inputEmail" type="email" placeholder="Email" required="">
-        						    <input name="username" id="inputUsername" type="text" placeholder="Username" pattern="^[a-z,A-Z,0-9,_]{6,15}$" data-valid-min="6" title="Choose a username" required=""><br>
-    							    <input name="password" id="inputpassword" type="password" placeholder="Password" required=""> 
-                                    <input name="verify" id="inputVerify" type="password" placeholder="Password (again)" required=""><br>                                  
-    							    <button type="button" id="btnRegister" class="btn btn-xs btn-primary">Sign Up</button>
-    							</form>
-                               
-                            </div>
+                            <li id="menuLogin">
+                            <a class="btn btn-xs btn-primary" href="/login" id="navLogin">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
+                          
                         </li>
                            
                        </ul>
@@ -113,7 +95,7 @@
                 <!-- Footer -->               
                <div class="row">
                    <footer id="bucketlist-footer" class="clearfix">
-                       <div class="pull-left"><b>Copyright </b>&copy; Bucketlist 2017</div>
+                       <div class="pull-left">©2017 All Rights Reserved. Bucketlist. Privacy and Terms</div>
                        <div class="pull-right"> Developed by John Mwashuma</div>
                    </footer>
                </div>

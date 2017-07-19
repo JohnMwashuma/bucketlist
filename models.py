@@ -1,16 +1,16 @@
-""" Bucketlist application classes which are the basically the database tables """
+""" Bucketlist application classes which are use to interact with database tables"""
 from datetime import datetime
 from bucketlist import db
 
-# Creates the Wishes table
-class Wish(db.Model):
-    """ Creates a Wish Table that will hold all bucketlist wishes """
+# Creates the BucketActivity table
+class BucketActivity(db.Model):
+    """ Creates a BucketActivity Table that will hold all bucketlist activities """
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.Text, nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
     description = db.Column(db.String(500), nullable=False)
-    wish_status = db.Column(db.Boolean, nullable=True, default=False)
-    wish_progress = db.Column(db.Boolean, nullable=True, default=False)    
+    bucket_item_status = db.Column(db.Boolean, nullable=True, default=False)
+    bucket_item_progress = db.Column(db.Boolean, nullable=True, default=False)    
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     
     

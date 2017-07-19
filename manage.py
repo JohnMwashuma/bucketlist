@@ -1,7 +1,7 @@
 """ Initialization of the Database Models and Creating their respective tables """
 from bucketlist import app, db
 from flask_script import Manager, prompt_bool
-from models import User, Wish
+from models import User, BucketActivity
 
 manager = Manager(app)
 

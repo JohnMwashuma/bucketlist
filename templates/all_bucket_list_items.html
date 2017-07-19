@@ -4,8 +4,8 @@
 
 <div id="content">
     <header class="clearfix">
-        <h2 class="page_title pull-left">All Wishes</h2>
-    <a href="/create" type="button" class="btn btn-xs btn-primary pull-right">Create New Wish</a>
+        <h2 class="page_title pull-left">All Bucket List Activites</h2>
+    <a href="/create" type="button" class="btn btn-xs btn-primary pull-right">Create New</a>
     
     </header>
     
@@ -15,7 +15,7 @@
         <div class="row search-row">
             <div class="col-md-12">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="search" placeholder="Search wishes">
+                    <input type="text" class="form-control" id="search" placeholder="Search Bucket">
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default go">Go!</button>
                     </span>
@@ -41,7 +41,7 @@
                         <div class="clearfix">
                             <div class="pull-right wish-status">
                                 <b class="status"> Wish Status </b>
-                               {% if bucket_list_activity.wish_progress == True %}
+                               {% if bucket_list_activity.bucket_item_progress == True %}
                                 <button type="button" class="btn btn-xs btn-primary pull-right disabled">InProgress</button>
                                 {% else %}
                                 <button type="button" class="btn btn-xs btn-primary pull-right disabled">Accomplished</button>
