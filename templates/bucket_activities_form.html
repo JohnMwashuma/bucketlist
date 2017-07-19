@@ -1,5 +1,5 @@
 {% extends "layout.html" %} 
-{% block browsertitle %} Bucketlist | Create Wish {% endblock %}
+{% block browsertitle %} Bucketlist | Create Bucket Activity {% endblock %}
 {% block Custom_css %}
  <!-- Choosen -->
 <link href="../static/css/chosen.min.css" rel="stylesheet">
@@ -9,7 +9,7 @@
 {% block content %}               
 <div id="content">
     <header>
-        <h2 class="page_title">Create a New Wish</h2>
+        <h2 class="page_title">Create a New Bucket Activity</h2>
     </header>
     
     <div class="content-inner">
@@ -30,23 +30,23 @@
                 </div>
                 <div class="form-group">
                     <label class="sr-only">Description</label>
-                    <textarea class="form-control" placeholder="Wish Description" name="description"></textarea>
+                    <textarea class="form-control" placeholder="Bucket Activity Description" name="description"></textarea>
                 </div>
                 <div class="form-group">
                     <label>
-                    Add a Wish Image
+                    Add a Bucket Activity Image
                     <input type="file">
                     </label>
                 </div> 
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Make wish not visible to others
+                        <input type="checkbox"> Make Bucket Activity not visible to others
                     </label>
                 </div> 
                 
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Mark wish as accomplished
+                        <input type="checkbox"> Mark Bucket Activity as accomplished
                     </label>
                 </div>
                 <div class="clearfix">

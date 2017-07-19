@@ -1,37 +1,33 @@
 from flask import Flask, render_template, url_for
-from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-# Database Configuration
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:6927Mwashi@localhost/bucketlist'
-db = SQLAlchemy(app)
 
-# Route to All Public Wishes 
+# Route to All Public bucket activities 
 @app.route('/')
 def index():
-    return render_template('allwishes.html')
+    return render_template('all_bucket__activities.html')
 
-# Route for Creating a New Wish
+# Route for Creating a New Bucket activity
 @app.route('/create')
-def NewWish():
-    return render_template('wish-form.html')
+def NewBucketActivity():
+    return render_template('bucket_activities_form.html')
 
-# Route to a User's all Wishes i.e. Public and Private
-@app.route('/mywishes')
-def MyWishes():
-    return render_template('all-my-wishes.html')
+# Route to a User's all bucket activities i.e. Public and Private
+@app.route('/my_bucket_activities')
+def my_bucket_activities():
+    return render_template('all_my_bucket_activities.html')
 
-# Route to a User's Public Wishes
-@app.route('/mypublicwishes')
-def MyPublicWishes():
-    return render_template('public-wishes.html')
+# Route to a User's Public bucket activities
+@app.route('/my_public_bucket_activities')
+def my_public_bucket_activities():
+    return render_template('my_public_bucket_activities.html')
 
-# Route to a User's Private Wishes
-@app.route('/myprivatewishes')
-def MyPrivateWishes():
-    return render_template('private-wishes.html')
+# Route to a User's Private bucket activities
+@app.route('/my_private_bucket_activities')
+def my_private_bucket_activities():
+    return render_template('my_private_bucket_activities.html')
 
 # Route to a User's Profile 
 @app.route('/profile')
