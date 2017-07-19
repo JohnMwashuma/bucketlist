@@ -1,24 +1,23 @@
-""" Database connection string and routes to the project's templates """
+""" Routes to the project's templates and logic for CRUD """
 from datetime import datetime
 from flask import Flask, render_template, url_for, request, redirect
 from forms import BucketlistForm
 
 app = Flask(__name__)
 
+
+
 # Secret key for managing sessions
 app.config['SECRET_KEY'] = '\xe0\x9c\xd0o\xc8\x11\rrF\x0e\xe3\x9a\xae\xaa\xb3E\x82\th\xa6\x11\xfcW?'
 
-# Setting Debug to true
-app.config['DEBUG'] = True
 
+# An Empty list for holding bucket activities
+bucket_activities = []
 
-# An Empty list for holding bucket list activities
-bucket_list_activities = []
-
-# Method for storing the Bucket list activities
-def store_bucket_list_activity(title, description, bucket_activity_status, bucket_activity_progress):
-    """ Appends or adds a bucketlist_activity property to the bucket_list_activities variable """  
-    bucket_list_activities.append(dict(
+# Method for storing the Bucket activities
+def store_bucket_activity(title, description, bucket_activity_status, bucket_activity_progress):
+    """ Appends or adds a bucket_activity property to the bucket_list_activities variable """  
+    bucket_activities.append(dict(
         title=title,
         user='John',
         description=description,
@@ -28,47 +27,47 @@ def store_bucket_list_activity(title, description, bucket_activity_status, bucke
     ))
 
 
-def get_bucket_list_activities(num):
+def get_bucket_activities(num):
     """ Returns sorted bucket activities by date created in terms of the latest bucket """
-    return sorted(bucket_list_activities, key=lambda bm: bm['date'], reverse=True)[:num]
+    return sorted(bucket_activities, key=lambda bm: bm['date'], reverse=True)[:num]
 
-# Route to All Public Bucket List Activies 
+# Route to All Public Bucket Activities 
 @app.route('/index')
 @app.route('/')
 def index():
     """ Returns bucket activities Templates """
-    return render_template('all_bucket_list_activities.html', bucket_list_activities = get_bucket_list_activities(2))
+    return render_template('all_bucket_activities.html', bucket_activities = get_bucket_activities(2))
 
-# Route for Creating a New Bucketlist activity
+# Route for Creating a New Bucket activity
 @app.route('/create', methods=['GET', 'POST'])
 def create_bucket_activity():
-    """ Returns a bucketlist form for creating new bucketlist activities """
+    """ Returns a bucket form for creating new bucket activities """
     form = BucketlistForm()
     if request.method == "POST":
         title = form.title.data
         description = form.description.data
         bucket_activity_status = form.bucket_activity_status.data
         bucket_activity_progress = form.bucket_activity_progress.data
-        store_bucket_list_activity(title, description, bucket_activity_status, bucket_activity_progress)
+        store_bucket_activity(title, description, bucket_activity_status, bucket_activity_progress)
         return redirect(url_for('index'))
-    return render_template('bucket_list_form.html', form = form)
+    return render_template('bucket_activity_form.html', form = form)
 
-# Route to a User's bucketlist activities i.e. Public and Private activities
-@app.route('/my_bucket_list_activities')
-def my_bucket_list_activities():
-    """ Returns all bucketlist activities for the logged in user """
-    return render_template('my_bucket_list_activities.html')
+# Route to a User's bucket activities i.e. Public and Private activities
+@app.route('/my_bucket_activities')
+def my_bucket_activities():
+    """ Returns all bucket activities for the logged in user """
+    return render_template('my_bucket_activities.html')
 
-# Route to a User's Public bucketlist activities
+# Route to a User's Public bucket activities
 @app.route('/my_public_bucket_activities')
 def my_public_bucket_activities():
-    """ Returns all bucketlist activities for the logged in user """
+    """ Returns all bucket activities for the logged in user """
     return render_template('my_public_bucket_activities.html')
 
-# Route to a User's Private bucketlist activities
+# Route to a User's Private bucket activities
 @app.route('/my_private_bucket_activities')
 def my_private_bucket_activities():
-    """ Returns all bucketlist activities for the logged in user """
+    """ Returns all bucket activities for the logged in user """
     return render_template('my_private_bucket_activities.html')
 
 # Route to the login page
