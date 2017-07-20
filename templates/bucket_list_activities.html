@@ -25,8 +25,8 @@
         <!-- Search Bar -->   
   
         
-         {% if bucket_activities %}
-            {% for bucket_activity in bucket_activities %}
+         {% if bucket_list_activities %}
+            {% for bucket_list in bucket_list_activities %}
           <div class="row activities-row">
             <div class="col-sm-2 col-md-1">
                 <img class="img-circle hidden-xs" src="../static/img/img.jpg">
@@ -34,14 +34,14 @@
             <div class="col-sm-10 col-md-11">
                 <div class="row">
                     <div class="col-xs-5 col-sm-9 col-md-9">
-                        <b>{{ bucket_activity.user }}</b> posted a bucket activity on <b> {{ bucket_activity.title }}</b><br>
-                        <small> Posted {{ bucket_activity.date }}.</small>
+                        <b>{{ bucket_list.user }}</b> posted a bucket activity on <b> {{ bucket_list.title }}</b><br>
+                        <small> Posted {{ bucket_list.date }}.</small>
                     </div>
                     <div class="col-xs-7 col-sm-3 col-md-3">
                         <div class="clearfix">
                             <div class="pull-right activity-status">
                                 <b class="status"> Bucket Activity Status </b>
-                               {% if bucket_activity.bucket_activity_progress == True %}
+                               {% if bucket_list.bucket_activity_progress == True %}
                                 <button type="button" class="btn btn-xs btn-primary pull-right disabled">InProgress</button>
                                 {% else %}
                                 <button type="button" class="btn btn-xs btn-primary pull-right disabled">Accomplished</button>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="bs-component">
                 <div class="well well-sm activities-well"><p>
-            {{ bucket_activity.description}} </p>
+            {{ bucket_list.description}} </p>
                 </div>
                 <div class="clearfix">
                     <div class="pull-right">                       
@@ -74,7 +74,6 @@
                 </div>
                 </div>
             {% endif %}
-
          <div class="clearfix">
             <div class="pull-right">
                                                 
@@ -88,6 +87,3 @@
     </div>
 </div>
 {% endblock %}
-
-
-              
