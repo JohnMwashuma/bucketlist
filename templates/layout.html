@@ -12,7 +12,7 @@
 
     <!-- Custom Styles -->  
     <link href="../static/css/custom.css" rel="stylesheet">
-    <link href="../static/css/bucket_list_form.css" rel="stylesheet">
+    <link href="../static/css/bucket_list_activities_form.css" rel="stylesheet">
     <link href="../static/css/bucket_list_activities.css" rel="stylesheet">
     {% block Custom_css %} {% endblock%}       
   </head>
@@ -22,35 +22,20 @@
            
            <!-- Side Menu Navigation -->
            <div class="col-md-2 col-sm-1 display-table-cell valign-top hidden-xs" id="side-menu">
-              <h1 class="hidden-sm hidden-xs">Bucketlist</h1> 
+              <h1 class="hidden-sm hidden-xs">BucketlistApp</h1> 
                <ul>
                    <li class="link active">
                        <a href="#collapse-all-activities" data-toggle="collapse" aria-controls="collapse-all-Buckets">
                            <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-                           <span class="hidden-sm hidden-xs">All Public Buckets</span>                          
+                           <span class="hidden-sm hidden-xs">Buckets List Activities</span>                          
                        </a>
                        <ul class="collapse collapseable" id="collapse-all-activities">
-                           <li><a href="/">Public Buckets</a></li>
-                           <li><a href="/create">Create New Activity<span class="glyphicon glyphicon-plus pull-right"></span></a></li>                            
+                           <li><a href="/">Buckets Lists Activites</a></li>
+                           <li><a href="/create">New BuctketList Activity<span class="glyphicon glyphicon-plus pull-right"></span></a></li>                            
                        </ul>
                    </li>
-                   <li class="link">
-                       <a href="#collapse-my-activities" data-toggle="collapse" aria-controls="collapse-my-activities">
-                           <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                           <span class="hidden-sm hidden-xs">Manage My Bucketlist</span>                         
-                       </a>
-                       <ul class="collapse collapseable" id="collapse-my-activities">
-                           <li><a href="/my_bucket_list_activities">All My Buckets</a></li>
-                           <li><a href="/my_public_bucket_list_activities">My Public Buckets</a></li>
-                           <li><a href="/my_private_bucket_list_activities">My Private Buckets</a></li>
-                       </ul>
-                   </li>
-                   <li class="link settings-btn">
-                       <a href="/profile">
-                           <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                           <span class="hidden-sm hidden-xs">Manage Account</span>
-                       </a>
-                   </li>
+                  
+                   
                </ul>
            </div>
            <!-- End Side Menu Navigation -->
@@ -75,15 +60,20 @@
                     </div>
                    <div class="col-md-12">
                        <ul class="pull-right">
+                            {% if session['logged_in'] %}
                            
                            <li id="welcome" class="hidden-sm hidden-xs">
-                               Welcome back jmwashuma@live.com
-                           </li>                     
-                           
-                            <li id="menuLogin">
-                            <a class="btn btn-xs btn-primary" href="/login" id="navLogin">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>
-                          
+                               Welcome to Bucketlist
+                           </li>                        
+                           <li id="menuLogin">
+                            <a class="btn btn-xs btn-primary" href="/logout" id="navLogin">Logout <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>                          
                         </li>
+                           {% else %}
+                            <li id="menuLogin">
+                            <a class="btn btn-xs btn-primary" href="/login" id="navLogin">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>                          
+                        </li>
+                        {% endif %}
+
                            
                        </ul>
                     </div>
@@ -112,6 +102,7 @@
     <script src="../static/js/bootstrap.min.js"></script>
     <!-- Custom Js -->
     <script src="../static/js/custom.js"></script>
+     {{ moment.include_moment() }}
      {% block Custom_Scripts %} {% endblock%}  
   </body>
 </html>

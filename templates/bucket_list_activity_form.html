@@ -20,21 +20,13 @@
                     <label class="sr-only">Description</label>
                      {{ form.description(placeholder="Bucketlist Activity Description...", class="form-control",  required ="*"  ) }} 
                     
-                </div>
-              
-                <div class="checkbox">
-                    <label>
-                        {{ form.bucket_activity_status(type="checkbox", value="true") }} 
-                       Make bucket List not visible to others
-                    </label>
-                </div> 
+                </div>  
+                    <div class="form-group">
+                    <label class="sr-only">Description</label>
+                     {{ form.bucket_list_name(placeholder="Bucketlist Category", class="form-control",  required ="*"  ) }} 
+                    
+                </div>              
                 
-                <div class="checkbox">
-                    <label>
-                        {{ form.bucket_activity_progress(type="checkbox", value="true") }} 
-                         Mark bucket list as accomplished
-                    </label>
-                </div>
                 <div class="clearfix">
                     <a href="/" class="btn btn-info pull-left">Cancel</a>
                     <button type="submit" class="btn btn-primary pull-right">Save</button>
