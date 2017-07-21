@@ -1,1 +1,1 @@
-web: gunicorn bucketlist:app
+web: python bucketlist.py
